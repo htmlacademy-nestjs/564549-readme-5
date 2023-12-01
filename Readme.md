@@ -1,7 +1,7 @@
 # Личный проект «Readme»
 
 * Студент: [Павел Григорьев](https://up.htmlacademy.ru/nodejs-2/5/user/564549).
-* Наставник: `Неизвестно`.
+* Наставник: [Глеб Клецков](https://htmlacademy.ru/profile/id1487865)
 
 ---
 
