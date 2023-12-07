@@ -1,7 +1,7 @@
 {
-  "name": "getway",
+  "name": "gateway",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "apps/getway/src",
+  "sourceRoot": "apps/gateway/src",
   "projectType": "application",
   "targets": {
     "build": {
@@ -11,12 +11,12 @@
       "options": {
         "target": "node",
         "compiler": "tsc",
-        "outputPath": "dist/apps/getway",
-        "main": "apps/getway/src/main.ts",
-        "tsConfig": "apps/getway/tsconfig.app.json",
-        "assets": ["apps/getway/src/assets"],
+        "outputPath": "dist/apps/gateway",
+        "main": "apps/gateway/src/main.ts",
+        "tsConfig": "apps/gateway/tsconfig.app.json",
+        "assets": ["apps/gateway/src/assets"],
         "isolatedConfig": true,
-        "webpackConfig": "apps/getway/webpack.config.js"
+        "webpackConfig": "apps/gateway/webpack.config.js"
       },
       "configurations": {
         "development": {},
@@ -27,14 +27,14 @@
       "executor": "@nx/js:node",
       "defaultConfiguration": "development",
       "options": {
-        "buildTarget": "getway:build"
+        "buildTarget": "gateway:build"
       },
       "configurations": {
         "development": {
-          "buildTarget": "getway:build:development"
+          "buildTarget": "gateway:build:development"
         },
         "production": {
-          "buildTarget": "getway:build:production"
+          "buildTarget": "gateway:build:production"
         }
       }
     },
@@ -42,14 +42,14 @@
       "executor": "@nx/eslint:lint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["apps/getway/**/*.ts"]
+        "lintFilePatterns": ["apps/gateway/**/*.ts"]
       }
     },
     "test": {
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
-        "jestConfig": "apps/getway/jest.config.ts"
+        "jestConfig": "apps/gateway/jest.config.ts"
       }
     }
   },
