@@ -1,21 +1,21 @@
 {
-  "name": "shared-app-types-types",
-  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "shared/app/types/types/src",
+  "name": "shared-app-types",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "shared/app/types/src",
   "projectType": "library",
   "targets": {
     "lint": {
       "executor": "@nx/eslint:lint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["shared/app/types/types/**/*.ts"]
+        "lintFilePatterns": ["shared/app/types/**/*.ts"]
       }
     },
     "test": {
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
-        "jestConfig": "shared/app/types/types/jest.config.ts"
+        "jestConfig": "shared/app/types/jest.config.ts"
       }
     }
   },
