@@ -1,9 +1,11 @@
+import { Like } from "./like.interface";
 
 
 export interface AbstractPublication {
   authorId: string;
   title: string;
-  tags?: string[];
+  tags: string[];
   id?: string;
-  likesCount: number;
+  likesIds: string[];
+  commentsIds: string[];
 }

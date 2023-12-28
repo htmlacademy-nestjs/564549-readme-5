@@ -24,4 +24,10 @@ export interface PhotoPublication extends AbstractPublication {
   description?: string;
 }
 
-export type Publication = VideoPublication | TextPublication | QuotePublication | PhotoPublication;
+export interface LinkPublication extends AbstractPublication {
+  type: PublicationType.Link;
+  url: string;
+  description?: string;
+}
+
+export type Publication = VideoPublication | TextPublication | QuotePublication | PhotoPublication | LinkPublication;

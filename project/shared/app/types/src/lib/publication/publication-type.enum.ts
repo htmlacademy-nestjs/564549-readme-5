@@ -3,4 +3,5 @@ export enum PublicationType {
   Text = 'text',
   Quote = 'quote',
   Photo = 'photo',
+  Link = 'link',
 }
