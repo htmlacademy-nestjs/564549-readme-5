@@ -5,7 +5,7 @@ import { CreateTextPublicationDto } from './text/create';
 import { CreateVideoPublicationDto } from './video/create';
 
 export type PublicationDto =
-   CreateLinkPublicationDto
+  | CreateLinkPublicationDto
   | CreatePhotoPublicationDto
   | CreateQuotePublicationDto
   | CreateTextPublicationDto
