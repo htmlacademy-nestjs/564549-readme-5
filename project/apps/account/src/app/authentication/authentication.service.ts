@@ -7,6 +7,9 @@ import {
 
 import dayjs from 'dayjs';
 import { UserRole } from '@project/shared/app/types';
+import { ConfigType } from '@nestjs/config';
+
+import { Inject  } from '@nestjs/common';
 
 import { BlogUserRepository } from '../blog-user/blog-user.repository';
 import { CreateUserDto } from './dto/create-user.dto';
@@ -17,10 +20,17 @@ import {
   AUTH_USER_PASSWORD_WRONG,
 } from './authentication.constant';
 import { LoginUserDto } from './dto/login-user.dto';
+import { dbConfig } from '@project/shared/config/account';
 
 @Injectable()
 export class AuthenticationService {
-  constructor(private readonly blogUserRepository: BlogUserRepository) {}
+  constructor(private readonly blogUserRepository: BlogUserRepository,
+    @Inject(dbConfig.KEY)
+    private readonly databaseConfig: ConfigType<typeof dbConfig>,
+    ) {
+      console.log(databaseConfig.host);
+      console.log(databaseConfig.user);
+    }
 
   public async register(dto: CreateUserDto) {
     const { email, firstname, lastname, password, dateBirth } = dto;
