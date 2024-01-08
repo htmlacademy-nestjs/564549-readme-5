@@ -1,5 +1,5 @@
 {
-  "name": "shared/config/account",
+  "name": "shared-config-account",
   "$schema": "../../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "shared/config/account/src",
   "projectType": "library",

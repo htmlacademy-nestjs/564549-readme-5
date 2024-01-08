@@ -1,6 +1,6 @@
 /* eslint-disable */
 export default {
-  displayName: 'shared/config/account',
+  displayName: 'shared-config-account',
   preset: '../../../jest.preset.js',
   testEnvironment: 'node',
   transform: {
