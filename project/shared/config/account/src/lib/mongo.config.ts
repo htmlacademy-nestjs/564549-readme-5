@@ -38,8 +38,6 @@ function getDbConfig(): MongoConfig {
     authBase: process.env.MONGO_AUTH_BASE!,
   };
 
-  console.log(config);
-
   validateMongoConfig(config);
   return config;
 }
