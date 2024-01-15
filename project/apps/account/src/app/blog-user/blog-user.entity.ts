@@ -1,6 +1,6 @@
 import { compare, genSalt, hash } from 'bcrypt';
 
-import { AuthUser, UserRole } from '@project/shared/app/types';
+import { AuthUser } from '@project/shared/app/types';
 import { Entity } from '@project/shared/core';
 
 import { SALT_ROUNDS } from './blog-user.constant';
@@ -11,7 +11,6 @@ export class BlogUserEntity implements AuthUser, Entity<string> {
   public firstname: string;
   public lastname: string;
   public dateOfBirth: Date;
-  public role: UserRole;
   public passwordHash: string;
 
   constructor(user: AuthUser) {
@@ -25,7 +24,6 @@ export class BlogUserEntity implements AuthUser, Entity<string> {
       firstname: this.firstname,
       lastname: this.lastname,
       dateOfBirth: this.dateOfBirth,
-      role: this.role,
       passwordHash: this.passwordHash,
     };
   }
@@ -35,7 +33,6 @@ export class BlogUserEntity implements AuthUser, Entity<string> {
     this.firstname = data.firstname;
     this.lastname = data.lastname;
     this.dateOfBirth = data.dateOfBirth;
-    this.role = data.role;
   }
 
   public async setPassword(password: string): Promise<BlogUserEntity> {

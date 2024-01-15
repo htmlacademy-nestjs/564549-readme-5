@@ -6,7 +6,6 @@ import {
 } from '@nestjs/common';
 
 import dayjs from 'dayjs';
-import { UserRole } from '@project/shared/app/types';
 import { ConfigType } from '@nestjs/config';
 
 import { Inject } from '@nestjs/common';
@@ -37,7 +36,6 @@ export class AuthenticationService {
       email,
       firstname,
       lastname,
-      role: UserRole.User,
       avatar: '',
       dateOfBirth: dayjs(dateBirth).toDate(),
       passwordHash: '',
