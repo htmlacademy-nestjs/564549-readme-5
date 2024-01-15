@@ -6,7 +6,9 @@ import {
 } from '@nestjs/common';
 
 import dayjs from 'dayjs';
-import { UserRole } from '@project/shared/app/types';
+import { ConfigType } from '@nestjs/config';
+
+import { Inject } from '@nestjs/common';
 
 import { BlogUserRepository } from '../blog-user/blog-user.repository';
 import { CreateUserDto } from './dto/create-user.dto';
@@ -17,10 +19,15 @@ import {
   AUTH_USER_PASSWORD_WRONG,
 } from './authentication.constant';
 import { LoginUserDto } from './dto/login-user.dto';
+import { dbConfig } from '@project/shared/config/account';
 
 @Injectable()
 export class AuthenticationService {
-  constructor(private readonly blogUserRepository: BlogUserRepository) {}
+  constructor(
+    private readonly blogUserRepository: BlogUserRepository,
+    @Inject(dbConfig.KEY)
+    private readonly databaseConfig: ConfigType<typeof dbConfig>
+  ) {}
 
   public async register(dto: CreateUserDto) {
     const { email, firstname, lastname, password, dateBirth } = dto;
@@ -29,7 +36,6 @@ export class AuthenticationService {
       email,
       firstname,
       lastname,
-      role: UserRole.User,
       avatar: '',
       dateOfBirth: dayjs(dateBirth).toDate(),
       passwordHash: '',
@@ -62,6 +68,12 @@ export class AuthenticationService {
   }
 
   public async getUser(id: string) {
-    return this.blogUserRepository.findById(id);
+    const existUser = await this.blogUserRepository.findById(id);
+
+    if (!existUser) {
+      throw new NotFoundException(`User with id ${id} not found`);
+    }
+
+    return existUser;
   }
 }
